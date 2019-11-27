@@ -14,6 +14,6 @@ CHIP Inc16 {
 
     PARTS:
     Add16(a=true, b=true, out=almostOne);
-    Not16(in=, out=);(in=almostOne, out=one);
+    Not16(in=almostOne, out=one);
     Add16(a=in, b=one, out=out);
 }
