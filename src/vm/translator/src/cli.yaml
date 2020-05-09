@@ -1,0 +1,19 @@
+name: vm2asm
+version: "1.0"
+about: Tranlator from nand2tetris vm language to asm
+author: Mark O. <mail.ormark@gmail.com>
+
+args:
+  - INPUT:
+      help: Sets the input file to use
+      required: true
+      index: 1
+  - output:
+      short: o
+      long: output
+      value_name: FILE
+      help: Path to the file to write output
+      takes_value: true
+      required: true
+      requires:
+        - INPUT

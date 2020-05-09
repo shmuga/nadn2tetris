@@ -3,3 +3,7 @@
 *.hack
 **/*.hack
 **/target
+.idea
+.DS_Store
+.vscode
+
