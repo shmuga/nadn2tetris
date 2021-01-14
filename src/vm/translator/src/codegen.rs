@@ -14,6 +14,9 @@ impl Codegen {
     fn generate(&mut self, opcodes: &Vec<Opcode>) -> String {
         for opcode in opcodes.iter() {
             match opcode {
+                Opcode::Label(label) => self.label(&label),
+                Opcode::Goto(label) => self.goto(&label),
+                Opcode::IfGoto(label) => self.if_goto(&label),
                 Opcode::Push(pc) => self.push(&pc),
                 Opcode::Pop(pc) => self.pop(&pc),
                 Opcode::Add => self.binary("+"),
@@ -25,7 +28,7 @@ impl Codegen {
                 Opcode::Lt => self.logical("LT"),
                 Opcode::Gt => self.logical("GT"),
                 Opcode::Eq => self.logical("EQ"),
-                _ => {}
+                other => { println!("Missing implementation of {:?}", other)}
             }
         }
 
@@ -129,7 +132,7 @@ impl Codegen {
         self.label += 1;
     }
 
-    fn push(&mut self, code: &PushCode) {
+    fn push(&mut self, code: &SegmentMetadata) {
         self.write(&format!("// push segment {} to location {}", code.segment, code.i));
         match code.segment {
             "constant" => self.push_constant(&code.i),
@@ -144,7 +147,7 @@ impl Codegen {
         }
     }
 
-    fn pop(&mut self, code: &PopCode) {
+    fn pop(&mut self, code: &SegmentMetadata) {
         self.write(&format!("// pop segment {} to location {}", code.segment, code.i));
         match code.segment {
             "local" => self.pop_segment("LCL", &code.i),
@@ -252,6 +255,17 @@ impl Codegen {
         self.d_to_s();
         self.s_inc();
     }
+
+    fn label(&mut self, label: &LabelMetadata) {}
+
+    fn goto(&mut self, label: &LabelMetadata) {
+        self.write_all(vec![
+            &format!("@{}", label.name),
+            "1;JMP",
+        ]);
+    }
+
+    fn if_goto(&mut self, label: &LabelMetadata) {}
 }
 
 
