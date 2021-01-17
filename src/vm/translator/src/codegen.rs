@@ -1,14 +1,20 @@
 use crate::opcode::*;
 
 struct Codegen {
-    label: u16,
+    label_c: u16,
+    context: String,
     result: String,
     filename: String,
 }
 
 impl Codegen {
     pub fn new(filename: String) -> Codegen {
-        Codegen { result: String::new(), label: 0, filename }
+        Codegen {
+            result: String::new(),
+            label_c: 0,
+            context: "Global".to_string(),
+            filename
+        }
     }
 
     fn generate(&mut self, opcodes: &Vec<Opcode>) -> String {
@@ -113,23 +119,23 @@ impl Codegen {
         self.s_pop();
         self.write_all(vec![
             "D=M",
-            &format!("@TRUE_{}", self.label),
+            &format!("@TRUE_{}", self.label_c),
             &format!("D;J{}", operand),
             "@SP",
             "A=M",
             "M=0",
-            &format!("@FINISH_{}", self.label),
+            &format!("@FINISH_{}", self.label_c),
             "1;JMP",
-            &format!("(TRUE_{})", self.label),
+            &format!("(TRUE_{})", self.label_c),
             "@SP",
             "A=M",
             "M=-1",
-            &format!("@FINISH_{}", self.label),
+            &format!("@FINISH_{}", self.label_c),
             "1;JMP",
-            &format!("(FINISH_{})", self.label),
+            &format!("(FINISH_{})", self.label_c),
         ]);
         self.s_inc();
-        self.label += 1;
+        self.label_c += 1;
     }
 
     fn push(&mut self, code: &SegmentMetadata) {
@@ -256,16 +262,25 @@ impl Codegen {
         self.s_inc();
     }
 
-    fn label(&mut self, label: &LabelMetadata) {}
+    fn label(&mut self, label: &LabelMetadata) {
+        self.write(&format!("({}.{}${})", self.filename, self.context, label.name));
+    }
 
     fn goto(&mut self, label: &LabelMetadata) {
         self.write_all(vec![
-            &format!("@{}", label.name),
+            &format!("@{}.{}${}", self.filename, self.context, label.name),
             "1;JMP",
         ]);
     }
 
-    fn if_goto(&mut self, label: &LabelMetadata) {}
+    fn if_goto(&mut self, label: &LabelMetadata) {
+        self.s_dec();
+        self.s_to_d();
+        self.write_all(vec![
+            &format!("@{}.{}${}", self.filename, self.context, label.name),
+            "D;JGT",
+        ]);
+    }
 }
 
 

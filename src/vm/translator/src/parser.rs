@@ -15,8 +15,8 @@ pub fn parse_complex<'a>(line: &'a str) -> Opcode<'a> {
         ["push", segment, i] => Opcode::Push(SegmentMetadata { segment, i: i.parse().unwrap_or(0) }),
         ["pop", segment, i] => Opcode::Pop(SegmentMetadata { segment, i: i.parse().unwrap_or(0) }),
         ["label", name] => Opcode::Label(LabelMetadata { name }),
-        ["goto", name] => Opcode::Label(LabelMetadata { name }),
-        ["if-goto", name] => Opcode::Label(LabelMetadata { name }),
+        ["goto", name] => Opcode::Goto(LabelMetadata { name }),
+        ["if-goto", name] => Opcode::IfGoto(LabelMetadata { name }),
         ["call", name, argv] => Opcode::Call(FunctionMetadata { name, argv: argv.parse().unwrap_or(0) }),
         ["function", name, argv] => Opcode::Function(FunctionMetadata { name, argv: argv.parse().unwrap_or(0) }),
         _ => panic!(format!("Unknown expression: {}", line))
