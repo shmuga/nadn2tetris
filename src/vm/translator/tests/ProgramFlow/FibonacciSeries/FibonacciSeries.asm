@@ -111,7 +111,7 @@ D=M
 @TEMP
 A=M
 M=D
-(FibonacciSeries.vm.MAIN_LOOP_START)
+(FibonacciSeries.vm.Global$MAIN_LOOP_START)
 // push segment argument to location 0
 @0
 D=A
@@ -128,11 +128,11 @@ M=M-1
 @SP
 A=M
 D=M
-@FibonacciSeries.vm.COMPUTE_ELEMENT
+@FibonacciSeries.vm.Global$COMPUTE_ELEMENT
 D;JGT
-@FibonacciSeries.vm.END_PROGRAM
+@FibonacciSeries.vm.Global$END_PROGRAM
 1;JMP
-(FibonacciSeries.vm.COMPUTE_ELEMENT)
+(FibonacciSeries.vm.Global$COMPUTE_ELEMENT)
 // push segment that to location 0
 @0
 D=A
@@ -263,6 +263,6 @@ D=M
 @TEMP
 A=M
 M=D
-@FibonacciSeries.vm.MAIN_LOOP_START
+@FibonacciSeries.vm.Global$MAIN_LOOP_START
 1;JMP
-(FibonacciSeries.vm.END_PROGRAM)
+(FibonacciSeries.vm.Global$END_PROGRAM)

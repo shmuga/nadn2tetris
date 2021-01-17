@@ -22,7 +22,7 @@ D=M
 @TEMP
 A=M
 M=D
-(BasicLoop.vm.LOOP_START)
+(BasicLoop.vm.Global$LOOP_START)
 // push segment argument to location 0
 @0
 D=A
@@ -134,7 +134,7 @@ M=M-1
 @SP
 A=M
 D=M
-@BasicLoop.vm.LOOP_START
+@BasicLoop.vm.Global$LOOP_START
 D;JGT
 // push segment local to location 0
 @0

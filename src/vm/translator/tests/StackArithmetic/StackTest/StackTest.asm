@@ -1,4 +1,4 @@
-// push constant 17
+// push segment constant to location 17
 @17
 D=A
 @SP
@@ -6,7 +6,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 17
+// push segment constant to location 17
 @17
 D=A
 @SP
@@ -30,23 +30,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_0
+@Global$TRUE_0
 D;JEQ
 @SP
 A=M
 M=0
-@FINISH_0
+@Global$FINISH_0
 1;JMP
-(TRUE_0)
+(Global$TRUE_0)
 @SP
 A=M
 M=-1
-@FINISH_0
-1;JMP
-(FINISH_0)
+(Global$FINISH_0)
 @SP
 M=M+1
-// push constant 17
+// push segment constant to location 17
 @17
 D=A
 @SP
@@ -54,7 +52,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 16
+// push segment constant to location 16
 @16
 D=A
 @SP
@@ -78,23 +76,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_1
+@Global$TRUE_1
 D;JEQ
 @SP
 A=M
 M=0
-@FINISH_1
+@Global$FINISH_1
 1;JMP
-(TRUE_1)
+(Global$TRUE_1)
 @SP
 A=M
 M=-1
-@FINISH_1
-1;JMP
-(FINISH_1)
+(Global$FINISH_1)
 @SP
 M=M+1
-// push constant 16
+// push segment constant to location 16
 @16
 D=A
 @SP
@@ -102,7 +98,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 17
+// push segment constant to location 17
 @17
 D=A
 @SP
@@ -126,23 +122,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_2
+@Global$TRUE_2
 D;JEQ
 @SP
 A=M
 M=0
-@FINISH_2
+@Global$FINISH_2
 1;JMP
-(TRUE_2)
+(Global$TRUE_2)
 @SP
 A=M
 M=-1
-@FINISH_2
-1;JMP
-(FINISH_2)
+(Global$FINISH_2)
 @SP
 M=M+1
-// push constant 892
+// push segment constant to location 892
 @892
 D=A
 @SP
@@ -150,7 +144,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 891
+// push segment constant to location 891
 @891
 D=A
 @SP
@@ -174,23 +168,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_3
+@Global$TRUE_3
 D;JLT
 @SP
 A=M
 M=0
-@FINISH_3
+@Global$FINISH_3
 1;JMP
-(TRUE_3)
+(Global$TRUE_3)
 @SP
 A=M
 M=-1
-@FINISH_3
-1;JMP
-(FINISH_3)
+(Global$FINISH_3)
 @SP
 M=M+1
-// push constant 891
+// push segment constant to location 891
 @891
 D=A
 @SP
@@ -198,7 +190,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 892
+// push segment constant to location 892
 @892
 D=A
 @SP
@@ -222,23 +214,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_4
+@Global$TRUE_4
 D;JLT
 @SP
 A=M
 M=0
-@FINISH_4
+@Global$FINISH_4
 1;JMP
-(TRUE_4)
+(Global$TRUE_4)
 @SP
 A=M
 M=-1
-@FINISH_4
-1;JMP
-(FINISH_4)
+(Global$FINISH_4)
 @SP
 M=M+1
-// push constant 891
+// push segment constant to location 891
 @891
 D=A
 @SP
@@ -246,7 +236,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 891
+// push segment constant to location 891
 @891
 D=A
 @SP
@@ -270,23 +260,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_5
+@Global$TRUE_5
 D;JLT
 @SP
 A=M
 M=0
-@FINISH_5
+@Global$FINISH_5
 1;JMP
-(TRUE_5)
+(Global$TRUE_5)
 @SP
 A=M
 M=-1
-@FINISH_5
-1;JMP
-(FINISH_5)
+(Global$FINISH_5)
 @SP
 M=M+1
-// push constant 32767
+// push segment constant to location 32767
 @32767
 D=A
 @SP
@@ -294,7 +282,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 32766
+// push segment constant to location 32766
 @32766
 D=A
 @SP
@@ -318,23 +306,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_6
+@Global$TRUE_6
 D;JGT
 @SP
 A=M
 M=0
-@FINISH_6
+@Global$FINISH_6
 1;JMP
-(TRUE_6)
+(Global$TRUE_6)
 @SP
 A=M
 M=-1
-@FINISH_6
-1;JMP
-(FINISH_6)
+(Global$FINISH_6)
 @SP
 M=M+1
-// push constant 32766
+// push segment constant to location 32766
 @32766
 D=A
 @SP
@@ -342,7 +328,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 32767
+// push segment constant to location 32767
 @32767
 D=A
 @SP
@@ -366,23 +352,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_7
+@Global$TRUE_7
 D;JGT
 @SP
 A=M
 M=0
-@FINISH_7
+@Global$FINISH_7
 1;JMP
-(TRUE_7)
+(Global$TRUE_7)
 @SP
 A=M
 M=-1
-@FINISH_7
-1;JMP
-(FINISH_7)
+(Global$FINISH_7)
 @SP
 M=M+1
-// push constant 32766
+// push segment constant to location 32766
 @32766
 D=A
 @SP
@@ -390,7 +374,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 32766
+// push segment constant to location 32766
 @32766
 D=A
 @SP
@@ -414,23 +398,21 @@ M=M+1
 M=M-1
 A=M
 D=M
-@TRUE_8
+@Global$TRUE_8
 D;JGT
 @SP
 A=M
 M=0
-@FINISH_8
+@Global$FINISH_8
 1;JMP
-(TRUE_8)
+(Global$TRUE_8)
 @SP
 A=M
 M=-1
-@FINISH_8
-1;JMP
-(FINISH_8)
+(Global$FINISH_8)
 @SP
 M=M+1
-// push constant 57
+// push segment constant to location 57
 @57
 D=A
 @SP
@@ -438,7 +420,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 31
+// push segment constant to location 31
 @31
 D=A
 @SP
@@ -446,7 +428,7 @@ A=M
 M=D
 @SP
 M=M+1
-// push constant 53
+// push segment constant to location 53
 @53
 D=A
 @SP
@@ -465,7 +447,7 @@ A=M
 M=M+D
 @SP
 M=M+1
-// push constant 112
+// push segment constant to location 112
 @112
 D=A
 @SP
@@ -502,7 +484,7 @@ A=M
 M=M&D
 @SP
 M=M+1
-// push constant 82
+// push segment constant to location 82
 @82
 D=A
 @SP
